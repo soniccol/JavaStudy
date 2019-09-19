@@ -1,0 +1,8 @@
+Put JMX_Exporter jmx_prometheus_javaagent.jar into ${JBOSS_HOME}/bin.
+Put jmx_exporter_conf.yaml into ${JBOSS_HOME}/standalone/configuration/.
+
+-Djava.util.logging.manager=org.jboss.logmanager.LogManager 
+-Djboss.modules.system.pkgs=org.jboss.byteman,org.jboss.logmanager 
+-Xbootclasspath/p:${JBOSS_HOME}/modules/system/layers/base/org/wildfly/common/main/wildfly-common-1.4.0.Final-redhat-1.jar 
+-Xbootclasspath/p:${JBOSS_HOME}/modules/system/layers/base/org/jboss/logmanager/main/jboss-logmanager-2.1.2.Final-redhat-1.jar 
+-javaagent:jmx_prometheus_javaagent.jar=58080:../standalone/configuration/jmx_exporter_conf.yaml  
